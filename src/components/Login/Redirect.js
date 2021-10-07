@@ -40,6 +40,7 @@ export default function Redirect() {
         const data = {
           email,
           name,
+          userName: "",
           userID: user.uid
         };
         await db.collection("users").doc(user.uid).set(data);
@@ -49,9 +50,5 @@ export default function Redirect() {
     })();
   }, []);
 
-  return (
-    <div>
-      Please wait
-    </div>
-  );
-}
+  return (<></>);
+};

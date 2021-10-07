@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { userContext } from "../../contexts/userContext";
 import Register from "../Login/Register";
 import Redirect from "../Login/Redirect";
+import Messenger from "../Messenger/Messenger";
 
 export default function Main() {
 
@@ -46,6 +47,6 @@ export default function Main() {
   </>);
 
   if (user.name) return (<>
-    <div>Logged in {user.name}</div>
+    <Messenger />
   </>);
 };

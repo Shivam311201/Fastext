@@ -1,0 +1,55 @@
+.ModalBackground > .UserNameModal {
+  position: absolute;
+  z-index: 2;
+  height: 100px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #302c34;
+}
+
+.UserNameModal > .CloseButton {
+  color: white;
+  z-index: 3;
+  position: absolute; 
+  right: 10px;
+  top: 10px;
+}
+
+.UserNameModal > .CloseButton:hover {
+  cursor: pointer;
+}
+
+.UserNameModal > .InputDiv {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  place-items: center;
+}
+
+.InputDiv > input {
+  all: unset;
+  border-radius: 999px;
+  width: 80%;
+  height: 40%;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: lightgray;
+}
+
+.InputDiv > button {
+  all: unset;
+  margin-right: auto;
+  margin-left: 10% ;
+  width: 60%;
+  background-color: lightgray;
+  border-radius: 999px;
+  text-align: center;
+  padding: 5%;
+  color: grey;
+}
+
+.InputDiv > button:hover {
+  cursor: pointer;
+}
