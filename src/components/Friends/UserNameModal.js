@@ -43,12 +43,11 @@ export default function UserNameModal() {
               const foundUserName = await findUserName(userName);
               if (foundUserName) alert("Username already exists");
               else {
-                console.log("Else runs");
                 setUser((oldUser) => ({ ...oldUser, userName: userName }));
                 const doc = await db.collection("users").doc(user.userID).update({
                   userName: userName
                 });
-                console.log("Updated");
+                setUserNameModal(false);
               };
             } else alert("Username can not be empty");
           }}>Set</button>

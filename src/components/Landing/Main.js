@@ -14,14 +14,21 @@ export default function Main() {
   if (firebase.apps.length === 0) firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
+
   const [user, setUser] = useContext(userContext);
 
-  auth.onAuthStateChanged(async (signedInUser) => {
-    if (signedInUser) {
-      const existingUser = await db.collection("users").doc(signedInUser.uid).get();
-      setUser(existingUser.data());
-    };
-  });
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (signedInUser) => {
+      if (signedInUser) {
+        const existingUser = await db.collection("users").doc(signedInUser.uid).get();
+        setUser(existingUser.data());
+      };
+    });
+  }, []);
 
   if (!user.name) return (<>
     <Router>

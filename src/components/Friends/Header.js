@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import "../../styles/Friends/Header.css";
+import firebase from "firebase/app";
+import "firebase/auth";
+import { useHistory } from "react-router-dom";
 import { contactModalContext } from "../../contexts/contactModalContext";
 import ContactModal from "./ContactModal";
 import { userNameModalContext } from "../../contexts/userNameModalContext";
@@ -8,6 +11,7 @@ import { userContext } from "../../contexts/userContext";
 
 export default function Header() {
 
+  const auth = firebase.auth();
   const [user, setUser] = useContext(userContext);
   const [contactModal, setContactModal] = useContext(contactModalContext);
   const [userNameModal, setUserNameModal] = useContext(userNameModalContext);
@@ -19,6 +23,12 @@ export default function Header() {
       </button>
       <button onClick={() => setUserNameModal(true)}>
         Set Username
+      </button>
+      <button onClick={async () => {
+        await auth.signOut();
+        setUser({});
+      }}>
+        Log out
       </button>
     </div>
     {contactModal && <ContactModal />}
