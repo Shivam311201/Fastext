@@ -1,5 +1,4 @@
 import React from 'react';
-import "../../styles/Friends/Search.css";
 
 export default function Search() {
 

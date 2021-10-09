@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body, html {
+  font-family: 'Urbanist', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Messenger {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  overflow-y: hidden;
+}
+
+.Friends > .Header {
+  border-right: solid 1px gray;
+  height: 10%;
+  background-color: #302c34;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.712);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.Header > button {
+  all: unset;
+  background-color: #181c24;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Header > button:hover {
+  cursor: pointer;
+}
+
+.ModalBackground {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CloseButton {
+  color: white;
+  z-index: 3;
+  position: absolute; 
+  right: 10px;
+  top: 10px;
+}
+
+.CloseButton:hover {
+  cursor: pointer;
+}
+
+.ModalBackground > .OptionsModal {
+  position: absolute;
+  z-index: 2;
+  height: 100px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #302c34;
+  display: grid;
+  place-items: center;
+}
+
+.OptionsModal > button {
+  all: unset;
+}
+
+.ModalBackground > .ContactModal {
+  position: absolute;
+  z-index: 2;
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #302c34;
+}
+
+
+.ContactModal > .InputDiv {
+  width: 100%;
+  height: 20%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  place-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.InputDiv > input {
+  all: unset;
+  border-radius: 999px;
+  width: 80%;
+  height: 40%;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: lightgray;
+}
+
+.InputDiv > button {
+  all: unset;
+  margin-right: auto;
+  margin-left: 10% ;
+  width: 60%;
+  background-color: lightgray;
+  border-radius: 999px;
+  text-align: center;
+  padding: 5px;
+  color: grey;
+}
+
+.InputDiv > button:hover {
+  cursor: pointer;
+}
+
+.ContactModal > .FoundContactsList {
+  height: 80%;
+  width: 100%;
+  row-gap: 1%;
+}
+
+.FoundContactsList > .FoundContact {
+  border-bottom: 1px solid grey;
+  display: grid;
+  place-items: "center";
+}
+
+.FoundContact > div {
+  height: 50%;
+}
+
+.ModalBackground > .UserNameModal {
+  position: absolute;
+  z-index: 2;
+  height: 100px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #302c34;
+}
+
+.UserNameModal > .InputDiv {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  place-items: center;
+}
+
+
+.Friends > .List {
+  background-color: black;
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: grey #181c24;
+  display: grid;
+  grid-template-rows: repeat(8, 12.5%);
+  grid-auto-rows: 12.5%;
+  row-gap: 2px;
+  place-items: center;
+}
+
+.Friends > .List::-webkit-scrollbar{
+  width: 0.5vw;
+}
+
+.Friends > .List::-webkit-scrollbar-track {
+  background-color: #181c24;
+}
+
+.Friends > .List::-webkit-scrollbar-thumb {
+  background-color: grey;
+}
+
+.Friends > .List > .Friend {
+  background-color: #181c24;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px grey solid;
+}
+
+.Friends > .Search {
+  height: 10%;
+  background-color: #181c24;
+  display: grid;
+  place-items: center;
+  border-bottom: solid 1px gray;
+  border-right: solid 1px gray;
+}
+
+.Friends > .Search > input {
+  all: unset;
+  height: 50%;
+  width: 90%;
+  background-color: #302c34;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 999px;
+}
+
+.Chat {
+  background-color: hsl(175, 0%, 5%);
+}

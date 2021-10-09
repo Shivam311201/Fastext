@@ -1,5 +1,4 @@
 import React from 'react';
-import "../../styles/Messenger/Messenger.css";
 import Chat from "../Chat/Chat";
 import Friends from "../Friends/Friends";
 

@@ -1,16 +1,13 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import "../../styles/Friends/UserNameModal.css";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { userNameModalContext } from "../../contexts/userNameModalContext";
 import { userContext } from "../../contexts/userContext";
 
-export default function UserNameModal() {
+export default function UserNameModal({ setModal }) {
 
   const db = firebase.firestore();
   const [userName, setUserName] = useState("");
   const [user, setUser] = useContext(userContext);
-  const [userNameModal, setUserNameModal] = useContext(userNameModalContext);
   const userNameSearchRef = useRef(null);
 
   useEffect(() => {
@@ -28,7 +25,7 @@ export default function UserNameModal() {
   return (
     <div className="ModalBackground">
       <div className="UserNameModal">
-        <div className="CloseButton" onClick={() => setUserNameModal(false)}>X
+        <div className="CloseButton" onClick={() => setModal(false)}>X
         </div>
         <div className="InputDiv">
           <input
@@ -47,7 +44,7 @@ export default function UserNameModal() {
                 const doc = await db.collection("users").doc(user.userID).update({
                   userName: userName
                 });
-                setUserNameModal(false);
+                setModal(false);
               };
             } else alert("Username can not be empty");
           }}>Set</button>
