@@ -18,10 +18,6 @@ export default function Main() {
   const [user, setUser] = useContext(userContext);
 
   useEffect(() => {
-    console.log(user);
-  }, [user]);
-
-  useEffect(() => {
     auth.onAuthStateChanged(async (signedInUser) => {
       if (signedInUser) {
         const existingUser = await db.collection("users").doc(signedInUser.uid).get();
