@@ -193,7 +193,27 @@ body, html {
         
           .RequestList {
             height: 87.5%;
+            width: 100%;
+            row-gap: 1%;
 
+            .Request {
+              // padding-bottom: 10px;
+              height: 12%;
+              border-bottom: 1px solid grey;
+              color: $fontColor;
+              @include center();
+              grid-template-columns: 45% 35% 20%;
+
+              .Confirm {
+                @include center();
+                background-color: $secondary;
+                cursor: pointer;
+                width: 90%;
+                height: 80%;
+                text-align: center;
+                border-radius: 5px;
+              }
+            }
           }
         }
       }

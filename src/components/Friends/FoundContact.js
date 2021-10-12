@@ -9,6 +9,21 @@ export default function FoundContact({ name, userName }) {
   const [user, setUser] = useContext(userContext);
 
   async function addContact() {
+
+    if (userName == user.userName) {
+      alert("Can not add yourself as a Friend");
+      return;
+    }
+
+    let existingRecievedRequest;
+    const existingRecievedRequestDoc = await db.collection("users").doc(user.userID).collection("requests").where("userName", "==", userName).get();
+    existingRecievedRequestDoc.forEach((snapshot) => existingRecievedRequest = snapshot.data());
+
+    if (existingRecievedRequest) {
+      alert("User had already sent you a request");
+      return;
+    }
+
     let reciever;
     const recieverDoc = await db.collection("users").where("userName", "==", userName).get();
     recieverDoc.forEach((snapshot) => reciever = snapshot.data());
@@ -22,17 +37,19 @@ export default function FoundContact({ name, userName }) {
       return;
     };
 
-    let existingRequest;
-    const existingRequestDoc = await db.collection("users").doc(reciever.userID).collection("requests").where("by", "==", user.userName).get();
-    existingRequestDoc.forEach((snapshot) => existingRequest = snapshot.data());
+    let existingSentRequest;
+    const existingSentRequestDoc = await db.collection("users").doc(reciever.userID).collection("requests").where("userName", "==", user.userName).get();
+    existingSentRequestDoc.forEach((snapshot) => existingSentRequest = snapshot.data());
 
-    if (existingRequest) {
+    if (existingSentRequest) {
       alert("Already request sent");
       return;
     };
 
     await db.collection("users").doc(reciever.userID).collection("requests").add({
-      by: user.userName
+      userName: user.userName,
+      name: user.name,
+      senderID: user.userID
     });
     alert("Request sent");
   };
