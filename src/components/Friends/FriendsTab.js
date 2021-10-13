@@ -3,9 +3,9 @@ import Header from "./Header";
 import List from "./List";
 import Search from "./Search";
 
-export default function Friends() {
+export default function FriendsTab() {
   return (
-    <div className="Friends">
+    <div className="FriendsTab">
       <Header />
       <Search />
       <List />

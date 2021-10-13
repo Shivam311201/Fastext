@@ -1,13 +1,14 @@
 import React from 'react';
 import Main from "./components/Landing/Main";
-import { ListProvider } from "./contexts/listContext";
+import { FriendsProvider } from "./contexts/friendsContext";
 import { UserProvider } from "./contexts/userContext";
-import { ChatProvider } from "./contexts/chatContext";
+import { ChatContactProvider } from "./contexts/chatContactContext";
+import { FilteredFriendsProvider } from "./contexts/filteredFriendsContext";
 
 export default function App() {
   return (
-    <UserProvider><ChatProvider><ListProvider>
+    <UserProvider><ChatContactProvider><FriendsProvider><FilteredFriendsProvider>
       <Main />
-    </ListProvider></ChatProvider></UserProvider>
+    </FilteredFriendsProvider></FriendsProvider></ChatContactProvider></UserProvider>
   );
 }

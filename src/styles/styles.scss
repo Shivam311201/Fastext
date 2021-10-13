@@ -20,12 +20,13 @@ body, html {
 
 .Messenger {
   height: 100vh;
+  min-height: 500px;
   width: 100%;
   display: grid;
   grid-template-columns: 30% 70%;
   overflow-y: hidden;
 
-  .Friends {
+  .FriendsTab {
 
     .Header {
       border-right: solid 1px gray;
@@ -250,6 +251,7 @@ body, html {
       grid-template-rows: repeat(8, 12.5%);
       grid-auto-rows: 12.5%;
       row-gap: 2px;
+      background-color: $secondary;
 
       &::-webkit-scrollbar{
         width: 0.5vw;
@@ -263,16 +265,51 @@ body, html {
       }
       
       .Friend {
+        display: grid;
+        align-items: center;
         background-color: #181c24;
-        margin: 0 auto;
+        padding-left: 20px;
         height: 100%;
         width: 100%;
         border-bottom: 3px grey solid;
+        color: $fontColor;
+        font-size: 125%;
+        cursor: pointer;
       }
     }
   }
 
   .Chat {
     background-color: black;
+    
+    .ChatContainer {
+      height: 90%;
+      background-color: $primary;
+    }
+
+    .InputDiv {
+      @include center();
+      height: 10%;
+      width: 100%;
+      grid-template-columns: 79% 20%;
+      column-gap: 1%;
+
+      input {
+        all: unset;
+        width: 80%;
+        height: 50%;
+        border-radius: 999px;
+        padding: 0 20px;
+        background-color: $primary;
+        color: $fontColor;
+      }
+
+      button {
+        @extend input;
+        @include center();
+        width: 50%;
+        cursor: pointer;
+      }
+    }
   }
 }

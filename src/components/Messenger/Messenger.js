@@ -1,11 +1,11 @@
 import React from 'react';
 import Chat from "../Chat/Chat";
-import Friends from "../Friends/Friends";
+import FriendsTab from "../Friends/FriendsTab";
 
 export default function Messenger() {
   return (
     <div className="Messenger">
-      <Friends />
+      <FriendsTab />
       <Chat />
     </div>
   );
