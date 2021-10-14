@@ -242,14 +242,12 @@ body, html {
 
     .List {
       height: 80%;
-      min-height: 500px;
       @include center();
       overflow-y: auto;
       overflow-x: hidden;
       scrollbar-width: thin;
       scrollbar-color: grey $secondary;
-      grid-template-rows: repeat(8, 12.5%);
-      grid-auto-rows: 12.5%;
+      grid-auto-rows: 80px;
       row-gap: 2px;
       background-color: $secondary;
 
@@ -283,8 +281,19 @@ body, html {
     background-color: black;
     
     .ChatContainer {
-      height: 90%;
+      min-height: 90%;
       background-color: $primary;
+      display: grid;
+      overflow-y: auto;
+      overflow-x: hidden;
+      grid-auto-rows: 40px;
+      row-gap: 2%;
+
+      .Message {
+        height: 100%;
+        width: 100%;
+        background-color: aqua
+      }
     }
 
     .InputDiv {

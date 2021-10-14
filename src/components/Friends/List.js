@@ -26,18 +26,18 @@ export default function List() {
     setFilteredFriends(friends);
   }, [friends]);
 
-  async function openChat(name, userName, contactID, friendshipID) {
+  async function openChat(name, userName, userID, friendshipID) {
     setChatContact({
       name,
       userName,
-      contactID,
+      userID,
       friendshipID
     });
   };
 
   return (
     <div className="List">
-      {filteredFriends.map((friend, index) => <Friend name={friend.name} userName={friend.userName} contactID={friend.contactID} onClick={openChat} friendshipID={friend.friendshipID} key={index.toString()} />)}
+      {filteredFriends.map((friend, index) => <Friend name={friend.name} userName={friend.userName} userID={friend.userID} onClick={openChat} friendshipID={friend.friendshipID} key={index.toString()} />)}
     </div>
   );
 }

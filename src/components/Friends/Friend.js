@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Friend({ name, userName, contactID, friendshipID, onClick }) {
+export default function Friend({ name, userName, userID, friendshipID, onClick }) {
   return (
-    <div className="Friend" onClick={() => onClick(name, userName, contactID, friendshipID)}>
+    <div className="Friend" onClick={() => onClick(name, userName, userID, friendshipID)}>
       <div>{name} ( {userName} )</div>
     </div>
   );

@@ -14,12 +14,12 @@ export default function Request({ userName, name, senderID, setRequests }) {
     const { id } = await userRef.collection("friends").add({
       name,
       userName,
-      contactID: senderID
+      userID: senderID
     });
     await senderRef.collection("friends").doc(id).set({
       name: user.name,
       userName: user.userName,
-      contactID: user.userID,
+      userID: user.userID,
       friendshipID: id
     });
 
@@ -33,8 +33,6 @@ export default function Request({ userName, name, senderID, setRequests }) {
     requestDoc.forEach(async (snapshot) => await snapshot.ref.delete());
 
     setRequests((prevRequests) => prevRequests.filter((request) => request.userName != userName));
-
-    // await db.collection("chats").doc(id).set({});
   };
 
   return (
