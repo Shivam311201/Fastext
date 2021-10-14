@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { chatContactContext } from "../../contexts/chatContactContext";
 import { userContext } from "../../contexts/userContext";
+import Message from "./Message";
 
 export default function Chat() {
 
@@ -50,9 +51,7 @@ export default function Chat() {
       <div className="ChatContainer"
         ref={chatContainerRef}
       >
-        {chat.map((message) => (<div>
-          <div>{message.senderName}: {message.content}</div>
-        </div>))}
+        {chat.map((message) => (<Message sender={message.senderUserName} content={message.content} />))}
 
       </div>
       <div className="InputDiv">
