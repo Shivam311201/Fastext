@@ -1,5 +1,6 @@
 import React from 'react';
 import clientIDs from "../../configFiles/clientID";
+import { GoogleOutlined, FacebookOutlined } from '@ant-design/icons';
 
 export default function Register() {
 
@@ -11,10 +12,16 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <button onClick={() => googleSignIn()} >
-        <div>Sign in with Google</div>
-      </button>
+<div id='login-page'>
+      <div id='login-card'>
+        <h2>Welcome to Fastext!</h2>
+        <div
+          className='login-button google'
+          onClick={() => {googleSignIn()}}
+        >
+          <GoogleOutlined /> Sign In with Google
+        </div>
+      </div>
     </div>
   );
 }
